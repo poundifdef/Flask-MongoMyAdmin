@@ -29,3 +29,5 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules'
     ]
 )
+
+# To update pypi: `python setup.py register sdist bdist_wininst upload`

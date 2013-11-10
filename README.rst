@@ -40,7 +40,7 @@ Quickstart
 
 All you need is a valid MongoDB connection URI. This extension can manage
 multiple databases. You set them via key-value pairs in 
-:code:`app.config['MONGOMYADMIN_DATABASES']`.
+``app.config['MONGOMYADMIN_DATABASES']``.
 
 The key is just a display name for that mongo connection. You may set it to
 whatever you would like. The value is a mongo connection string.
@@ -71,5 +71,5 @@ Here is a sample Flask app to get started:
         app.run(debug=True)
 
 
-From there, navigate to :code:`http://localhost:5000/MongoMyAdmin` and you will see
+From there, navigate to ``http://localhost:5000/MongoMyAdmin`` and you will see
 your databases.
