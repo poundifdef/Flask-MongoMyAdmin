@@ -1,0 +1,30 @@
+{% include 'header.html' %}
+
+{% include 'collection_header.html' %}
+
+<form class="form-inline" method="GET" action="{{ url_for('mongomyadmin.search_collection', server=server, db=db, collection=collection) }}">
+<textarea rel="tooltip" title="Valid MongoDB JSON query string" placeholder="query" name="q" rows="5" class="span9">{{request.args.get('q', '')}}</textarea> <br><br>
+<input rel="tooltip" title="Comma-separate list of fields to include. eg: 'name,email'" class="input-medium" placeholder="fields" type="text" name="fields" value="{{request.args.get('fields', '')}}">
+<input class="input-small" placeholder="limit" type="text" name="limit" value="{{request.args.get('limit', '')}}">
+<input rel="tooltip" title="Sort results. eg: lastName:1,age:-1" class="input-medium" placeholder="sort" type="text" name="sort" value="{{request.args.get('sort', '')}}">
+<input type="submit" value="Search">
+</form>
+
+<strong>{{count}} results:</strong>
+
+{% include 'pager.html' %}
+<table class="table table-hover">
+    {% for document in results %}
+    <tr>
+        <td>{{offset + loop.index}}.</td>
+        <td>
+            <a href="{{url_for('mongomyadmin.edit_document', server=server, db=db, collection=collection, document=(document['_id']|string))}}">
+                {{dumps(document)[:250]}}
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% include 'pager.html' %}
+
+{% include 'footer.html'%}

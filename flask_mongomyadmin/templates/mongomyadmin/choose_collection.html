@@ -1,0 +1,25 @@
+{% include 'header.html' %}
+
+<hr>
+
+<h4>Create collection:</h4>
+
+<form class="form-inline" method="POST" action="{{url_for('mongomyadmin.choose_collection', server=server, db=db)}}">
+    <input class="input-small" placeholder="name" type="text" name="collection_name">
+    <input class="input-small" placeholder="size (bytes)" type="text" name="collection_size">
+    <input class="input-small" placeholder="capped (T/F)" type="text" name="collection_capped">
+    <input class="input-small" placeholder="max (items)" type="text" name="collection_max">
+    <button type="submit" class="btn">New Collection</button>
+</form>
+
+<hr>
+
+<h4>Browse collection:</h4>
+
+<ul>
+    {% for collection in collections %}
+    <li><a href="{{url_for('mongomyadmin.search_collection', server=server, db=db, collection=collection)}}">{{collection}}</a></li>
+    {% endfor %}
+</ul>
+
+{% include 'footer.html'%}

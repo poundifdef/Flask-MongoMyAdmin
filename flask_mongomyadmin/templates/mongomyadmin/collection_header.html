@@ -1,0 +1,6 @@
+{% from 'header.html' import nav_link %}
+ 
+<ul class="nav nav-tabs">
+    {{ nav_link('mongomyadmin.search_collection', 'Search', server=server, db=db, collection=collection) }}
+    {{ nav_link('mongomyadmin.new_document', 'New Document', server=server, db=db, collection=collection) }}
+</ul>

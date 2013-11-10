@@ -1,0 +1,35 @@
+<ul class="pager">
+
+{% if offset > 0 %}
+<li class="previous">
+<a href="{{
+    url_for(
+        'mongomyadmin.search_collection',
+        server=server, db=db, collection=collection,
+        q=request.args.get('q'),
+        fields=request.args.get('fields'),
+        limit=limit,
+        sort=request.args.get('sort'),
+        offset=offset-limit,
+    )
+}}">&larr; Previous</a>
+</li>
+{% endif %}
+
+{% if offset + limit < count %}
+<li class="next">
+<a href="{{
+url_for(
+    'mongomyadmin.search_collection',
+    server=server, db=db, collection=collection,
+    q=request.args.get('q'),
+    fields=request.args.get('fields'),
+    limit=limit,
+    sort=request.args.get('sort'),
+    offset=offset+limit,
+)
+}}">Next &rarr;</a>
+</li>
+{% endif %}
+
+</ul>

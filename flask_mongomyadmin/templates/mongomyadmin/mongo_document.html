@@ -1,0 +1,8 @@
+{% include 'header.html' %}
+
+<form method="POST" action="{{url_for('mongomyadmin.edit_document', server=server, db=db, collection=collection, document=document)}}">
+    <textarea rows="15" class="span9" wrap="off" name="document_contents">{{ mongo_json }}</textarea><br>
+    <button type="submit" class="btn">Save</button>
+</form>
+
+{% include 'footer.html'%}

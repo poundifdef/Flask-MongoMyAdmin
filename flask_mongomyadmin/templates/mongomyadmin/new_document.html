@@ -1,0 +1,10 @@
+{% include 'header.html' %}
+
+{% include 'collection_header.html' %}
+
+<form method="POST" action="{{url_for('mongomyadmin.new_document', server=server, db=db, collection=collection)}}">
+    <textarea rows="15" class="span9" wrap="off" name="document_contents">{{ mongo_json }}</textarea><br>
+    <button class="btn" type="submit">Save</button>
+</form>
+
+{% include 'footer.html'%}

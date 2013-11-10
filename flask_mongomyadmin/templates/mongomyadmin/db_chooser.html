@@ -1,0 +1,17 @@
+<div class="well">
+    <ul class="nav nav-list">
+
+    {% for server in config['MONGOMYADMIN_DATABASES'] %}
+
+      <li class="nav-header">{{server}}</li>
+
+      {% for db in get_databases(server) %}
+      <li><a href="{{url_for('mongomyadmin.choose_collection', server=server, db=db)}}">{{db}}</a></li>
+      {% endfor %}
+
+
+    {% endfor %}
+
+    </ul>
+
+</div>
