@@ -8,6 +8,9 @@ as such it relies on it for validation and error checking.
 This is a work in progres; I would love for this to become a feature-complete
 frontend to MongoDB which makes it easy to add on to any flask project.
 
+There are several screenshots in the screenshots/ directory. Take a look to
+get a sense of what this dashboard looks like.
+
 Features
 --------
 
