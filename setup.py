@@ -30,4 +30,4 @@ setup(
     ]
 )
 
-# To update pypi: `python setup.py register sdist bdist_wininst upload`
+# To update pypi: `python setup.py register sdist upload`
